@@ -20,7 +20,9 @@
 
       v-card-text(
         class="white--text"
-      ) &copy; {{ new Date().getFullYear() }} — Xanthén Servicios Ambientales
+      ) &copy; {{ new Date().getFullYear() }} — Xanthén 
+        br
+        | Servicios ambientales y seguridad empresarial
 
 
 </template>

@@ -1,23 +1,25 @@
 <template lang="pug">
   v-main(class="home")
 
-      XCarousel(
-        :current="currentSection"
+      XPresentation(
+        :index="1"
+        :current="currentSection" 
         @new-section="setSection"
-      )
-      
+      )  
+
+      XCarousel
+
       section(id="conocenos")
         XAbout(
-          :index="1" 
-          key="item1" 
+          :index="1"
           :current="currentSection" 
-          @new-section="setSection"
-        )  
+          @new-section="setSection" 
+
+        )
 
       section(id="servicios")
         XServices(
           :index="2" 
-          key="item2" 
           :current="currentSection" 
           @new-section="setSection" 
         )
@@ -25,7 +27,6 @@
       section(id="contacto")
         XContact(
           :index="3" 
-          key="item3" 
           :current="currentSection" 
           @new-section="setSection" 
         )
@@ -33,6 +34,7 @@
 </template>
 
 <script>
+import XPresentation from '@/components/XPresentation.vue'
 import XCarousel from '@/components/XCarousel.vue'
 import XAbout from '@/components/XAbout.vue'
 import XServices from '@/components/XServices.vue'
@@ -42,6 +44,7 @@ export default {
   name: 'HomeView',
 
   components: {
+    XPresentation,
     XCarousel,
     XAbout,
     XServices,

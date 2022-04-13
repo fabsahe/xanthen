@@ -3,7 +3,7 @@
     fixed
     app
     color="#ffffff"
-    elevate-on-scroll
+    elevation="0"
   )
     a(href="https://www.xanthen.com")
       v-img(
@@ -44,13 +44,18 @@ export default {
 </script>
 
 <style>
+.v-toolbar__content {
+  border-bottom: 1px solid #d9d9d9;
+}
 .logo {
   margin: 0px 0 0px 30px;
 }
 
 .x-nav {
-  margin: 0.5rem 3rem 0 0;
+  margin: 0.2rem 3rem 0 0;
   font-family: 'Comfortaa', cursive;
+  font-size: 1.1rem;
+  font-weight: 600;
 }
 
 .nav-link {

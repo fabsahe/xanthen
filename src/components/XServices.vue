@@ -1,167 +1,162 @@
 <template lang="pug">
   div(class="x-services" v-view="viewHandler")
     v-container
+
       v-row 
         v-col(cols="12" justify="center")
           h1(class="services-h1") Servicios
 
-          v-row(class="service-row")
-            v-col(cols="5")
-
-              div(class="service service1")
-                h3(class="service-title") Gestión Ambiental
-
-              div(class="img-container")
-                v-img(
-                  src="@/assets/icon_1.svg"
-                  :width="iconWidth"
-                  transition="scale-transition"
-                  @click="showCard('i1')"
-                  class="icon-service"
-                )
-
-            v-col(cols="7")           
-
-              div(v-show="show['i1']" class="connection text-left")
-                span(class="dot1")
-                span(class="line")
-                span(class="dot2")
-
-              v-card(
-                v-show="show['i1']"
-                class="mx-auto text-left service-info"
-                :color="cardColor"
-              )
-                v-card-text
-                  ul
-                    li Manifiestos de Impacto Ambiental (MIA) o Informe Preventivo (IP). 
-                    li Programa de Prevención de Accidentes (PPA).
-                    li Elaboración y Presentación de Estudio de Riesgo Ambiental. 
-                    li Elaboración y Presentación de la Cédula de Operación Anual (COA) Federal y Estatal.
-                    li Gestión y Obtención de Licencia de Ambiental Única. 
-                    li Estudios de Emisiones a la Atmósfera.
-                    li Estudios de Ruido Ambiental.
-                    li Auditorias para Cumplimiento Normativo de la SEGAM y SEMARNAT. 
-                    li Cumplimiento de Normatividad en el Sector Hidrocarburos. 
-                    li Cursos y Capacitaciones
-                    li Planes de Manejo de Residuos 
-                    li Estudios y Tramites de Residuos Peligroso (RP) y de Manejo Especial (RME)
-                    li Elaboración de Inventarios de Emisiones
-
-          v-row(v-show="show['ni']")
-            v-col(cols="5")
-            v-col(cols="7")
+    v-container
+      v-row
+        v-col(cols="3")
+          v-card(
+            elevation="2"
+            v-bind:class="[show['s1'] ? 'card-active' : '', 'rounded-lg']"
+            @click="showCard('s1')"
+          )
+            v-card-text
               v-img(
-                src="@/assets/xanthen-center.png"
-                width="500"
-                class="mx-auto no-icon"
-                transition="scale-transition"
-              )  
-
-          v-row(class="service-row")
-            v-col(cols="5")
-
-              div(class="service service1")
-                h3(class="service-title")  Seguridad Empresarial
-
-              div(class="img-container")
-                v-img(
-                  src="@/assets/icon_2.svg"
-                  :width="iconWidth"
-                  transition="scale-transition"
-                  @click="showCard('i2')"
-                  class="icon-service"
-                )
-
-            v-col(cols="7")
-              div(v-show="show['i2']" class="connection text-left")
-                span(class="dot1")
-                span(class="line")
-                span(class="dot2")
-
-              v-card(
-                v-show="show['i2']"
-                class="mx-auto text-left service-info"
-                :color="cardColor"
+                src="@/assets/icon_1.svg"
+                width="80"
+                class="mx-auto"
               )
-                v-card-text
-                  ul
-                    li Dictamen de Seguridad Estructural.
-                    li Dictamen de Instalaciones Eléctricas
-                    li Dictamen de Instalaciones de Gas.
-                    li Capacitaciones en materia de Seguridad e Higiene.
-                    li Programación de Simulacros.
-                    li Estudios de Normas Oficiales Mexicanas
-                    li Diseño, Elaboración y Presentación de Programa Interno de Protección Civil (PIPC)
+              h2(class="service-title") Gestión 
+                br 
+                | ambiental
 
-
-          v-row(class="service-row")
-            v-col(cols="5")
-
-              div(class="service service2")
-                h3(class="service-title") Gasolineras y Sector Hidrocarburos
-
-              div(class="img-container")
-                v-img(
-                  src="@/assets/icon_3.svg"
-                  :width="iconWidth"
-                  transition="scale-transition"
-                  @click="showCard('i3')"
-                  class="icon-service"
-                )
-
-            v-col(cols="7")
-              div(v-show="show['i3']" class="connection text-left")
-                span(class="dot1")
-                span(class="line")
-                span(class="dot2")
-
-              v-card(
-                v-show="show['i3']"
-                class="mx-auto text-left service-info"
-                :color="cardColor"
+        v-col(cols="3")
+          v-card(
+            elevation="2"
+            v-bind:class="[show['s2'] ? 'card-active' : '', 'rounded-lg']"
+            @click="showCard('s2')"
+          )
+            v-card-text
+              v-img(
+                src="@/assets/icon_2.svg"
+                width="80"
+                class="mx-auto"
               )
-                v-card-text
-                  ul
-                    li Gestión para el cumplimiento de normatividad del Sector Hidrocarburos
-                    li Diseño e Implementación del SASISOPA 
-                    li Obtención de la Clave Única del Regulado
-                    li Protocolo de Respuesta a Emergencias (PRE)
-                    li Licencia Ambiental Única y Licencia de Funcionamiento del Sector Hidrocarburos
-                    li Elaboración y Presentación de la Cedula de Operación Anual COA Federal
-                    li Elaboración y presentación de los Programas Internos de Protección Civil PIPC
+              h2(class="service-title") Seguridad 
+                br 
+                | empresarial
 
-          v-row(class="service-row")
-            v-col(cols="5")
-
-              div(class="service service1")
-                h3(class="service-title") Cursos
-
-              div(class="img-container")
-                v-img(
-                  src="@/assets/icon_4.svg"
-                  :width="iconWidth"
-                  transition="scale-transition"
-                  @click="showCard('i4')"
-                  class="icon-service"
-                )
-
-            v-col(cols="7")
-              div(v-show="show['i4']" class="connection text-left")
-                span(class="dot1")
-                span(class="line")
-                span(class="dot2")
-
-              v-card(
-                v-show="show['i4']"
-                class="mx-auto text-left service-info tiny-card"
-                :color="cardColor"
+        v-col(cols="3")
+          v-card(
+            elevation="2"
+            v-bind:class="[show['s3'] ? 'card-active' : '', 'rounded-lg']"
+            @click="showCard('s3')"
+          )
+            v-card-text
+              v-img(
+                src="@/assets/icon_3.svg"
+                width="80"
+                class="mx-auto"
               )
-                v-card-text
-                  ul
-                    li Aquí nomás hay cursos y capacitaciones XD
+              h2(class="service-title") Gasolineras y Sector Hidrocarburos
+
+        v-col(cols="3")
+          v-card(
+            elevation="2"
+            v-bind:class="[show['s4'] ? 'card-active' : '', 'rounded-lg']"
+            @click="showCard('s4')"
+          )
+            v-card-text
+              v-img(
+                src="@/assets/icon_4.svg"
+                width="80"
+                class="mx-auto"
+              )
+              h2(class="service-title") Cursos y capacitaciones    
+        
+    v-container 
+      v-row
+        v-col(cols="1")
+        v-col(clos="10")
+          v-sheet(
+            elevation="2"
+            v-show="show['s1']"
+            class="mx-auto rounded-lg text-left service-info"
+            color="#ffffff"
+          )
+            ul
+              li Manifiestos de Impacto Ambiental (MIA) o Informe Preventivo (IP). 
+              li Programa de Prevención de Accidentes (PPA).
+              li Elaboración y Presentación de Estudio de Riesgo Ambiental. 
+              li Elaboración y Presentación de la Cédula de Operación Anual (COA) Federal y Estatal.
+              li Gestión y Obtención de Licencia de Ambiental Única. 
+              li Estudios de Emisiones a la Atmósfera.
+              li Estudios de Ruido Ambiental.
+              li Auditorias para Cumplimiento Normativo de la SEGAM y SEMARNAT. 
+              li Cumplimiento de Normatividad en el Sector Hidrocarburos. 
+              li Cursos y Capacitaciones
+              li Planes de Manejo de Residuos 
+              li Estudios y Tramites de Residuos Peligroso (RP) y de Manejo Especial (RME)
+              li Elaboración de Inventarios de Emisiones
+
+          v-sheet(
+            elevation="2"
+            v-show="show['s2']"
+            class="mx-auto rounded-lg text-left service-info"
+            color="#ffffff"
+          )
+            ul
+              li Diseño, Elaboración y Presentación de Programa Interno de Protección Civil (PIPC) 
+              li Capacitaciones en materia de Seguridad e Higiene.
+              li Programación de Simulacros.
+              li Estudios de Normas Oficiales Mexicanas:
+            div(class="normas")
+              ul
+                li NOM-002-STPS-2010
+                li NOM-005-STPS-1998
+                li NOM-010-STPS-2014
+                li NOM-011-STPS-2001
+                li NOM-022-STPS-2015
+                li NOM-025-STPS-2008
+                li NOM-030-STPS-2009
+                li NOM-035-STPS-2018
+                li NOM-081-SEMARNAT-1994
+                li NOM-085-SEMARNAT-2011
+                li NOM-020-STPS-2002
+            ul
+              li Dictamen de Seguridad Estructural.
+              li Dictamen de Instalaciones Eléctricas
+              li Dictamen de Instalaciones de Gas.
+
+          v-sheet(
+            elevation="2"
+            v-show="show['s3']"
+            class="mx-auto rounded-lg text-left service-info"
+            color="#ffffff"
+          )
+            ul
+              li Gestión para el cumplimiento de normatividad del Sector Hidrocarburos
+              li Diseño e Implementación del SASISOPA 
+              li Obtención de la Clave Única del Regulado
+              li Protocolo de Respuesta a Emergencias (PRE)
+              li Licencia Ambiental Única y Licencia de Funcionamiento del Sector Hidrocarburos
+              li Elaboración y Presentación de la Cedula de Operación Anual COA Federal
+              li Elaboración y presentación de los Programas Internos de Protección Civil PIPC
+
+          v-sheet(
+            elevation="2"
+            v-show="show['s4']"
+            class="mx-auto rounded-lg text-left service-info"
+            color="#ffffff"
+          )
+            ul
+              li Gestión y legislación ambiental en la industria
+              li Cumplimiento normativo, ambiental y sector de hidrocarburos
+              li Recursos bióticos y educación ambiental 
+              li Contaminación de ecosistemas
+              li Contaminación fuentes fijas industriales
+
+
+        v-col(cols="1")
 
     v-container(class="service-decoration")
+      v-row
+        v-col(cols="12")
+          p(class="py-1")
       v-row
         v-col(cols="2")
           v-img(
@@ -223,11 +218,10 @@ export default {
       type: ''
     },
     show: {
-      i1: false,
-      i2: false,
-      i3: false,
-      i4: false,
-      ni: true
+      s1: true,
+      s2: false,
+      s3: false,
+      s4: false
     },
     show1: false,
     iconWidth: 160,
@@ -246,24 +240,17 @@ export default {
       }
     },
     showCard(n) {
-      let ni
       for (let item in this.show) {
         if (item === n) {
           if (this.show[item] === false) {
             this.show[item] = true
           } else {
             console.log('ya estaba seleccionado')
-            this.show[item] = false
-            ni = true
           }
         } else {
           this.show[item] = false
         }
       }
-      if (ni) {
-        this.show['ni'] = true
-      }
-      console.log(this.show['ni'])
     }
   }
 }
@@ -272,14 +259,15 @@ export default {
 <style scoped>
 .x-services {
   width: 100%;
-  margin-top: 1rem;
+  padding-top: 1rem;
+  background-color: #e4f7e4;
 }
 .services-h1 {
   font-family: 'Comfortaa', cursive;
-  color: #79b829;
+  color: #0e789c;
   font-size: 3rem;
   font-weight: 700;
-  margin-bottom: 2rem;
+  margin-bottom: 0.2rem;
 }
 .service-row {
   margin-bottom: 5px;
@@ -306,6 +294,18 @@ export default {
 .service-title {
   font-family: 'Comfortaa', cursive;
   font-size: 1.2rem;
+  color: #0e789c;
+  margin-bottom: 0.4rem;
+}
+.v-card--link:before {
+  background: none;
+}
+.v-card.v-sheet.theme--light:hover {
+  border-bottom: 6px solid #79b829 !important;
+  cursor: pointer;
+}
+.card-active {
+  border-bottom: 6px solid #79b829 !important;
 }
 .img-container {
   width: 200px;
@@ -317,11 +317,29 @@ export default {
   cursor: pointer;
   opacity: 0.7;
 }
-.service-info ul li {
+.service-info {
+  padding: 2rem;
+  margin-top: 1rem;
+}
+.service-info ul {
   list-style: none;
-  font-size: 1rem;
+}
+.service-info ul li {
+  font-size: 1.2rem;
   color: #222;
-  line-height: 24px;
+  line-height: 2rem;
+}
+.service-info ul li::before {
+  content: '\2022';
+  color: #79b829;
+  font-weight: bold;
+  font-size: 1.4rem;
+  display: inline-block;
+  width: 1em;
+  margin-left: -1em;
+}
+.normas {
+  margin-left: 3rem;
 }
 .tiny-card {
   margin-top: 20px;

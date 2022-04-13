@@ -1,13 +1,16 @@
 <template lang="pug">
   div(
     v-view="viewHandler"
+    class="x-carousel"
   )
     v-carousel(
       cycle
-      height="500"
+      height="auto"
       hide-delimiter-background
       show-arrows-on-hover
-    )
+      reverse-transition="fade-transition"
+      transition="fade-transition"
+    ) 
       v-carousel-item(
         v-for="(item,i) in items"
         :key="i"
@@ -73,4 +76,8 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped></style>
+<style>
+.x-carousel {
+  min-height: 600px;
+}
+</style>

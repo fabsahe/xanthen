@@ -35,7 +35,9 @@
                   class="mx-2"
                   fab
                   dark
-                  color="purple darken-1"                  
+                  color="purple darken-1"
+                  href="https://www.instagram.com/xanthen_sa/" 
+                  target="_blank"                   
                 )
                   i(class="fa-brands fa-instagram fa-xl")
 
